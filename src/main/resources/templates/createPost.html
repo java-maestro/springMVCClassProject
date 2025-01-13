@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create post</title>
+</head>
+<body>
+
+<form th:object="${newPost}" method="post" th:action="@{/posts}">
+
+    <input type="text" placeholder="Title" th:field="${newPost.title}">
+    <input type="text" placeholder="Description" th:field="${newPost.description}">
+    <input type="text" placeholder="Body" th:field="${newPost.body}">
+    <input type="submit">
+
+</form>
+
+</body>
+</html>

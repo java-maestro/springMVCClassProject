@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"  >
+<head>
+    <meta charset="UTF-8">
+    <title>posts</title>
+</head>
+<body>
+
+<h1>POSTS</h1>
+
+<a href="/posts/create">Create Post</a>
+
+<div th:each="postVar : ${posts}">
+    <h5 th:text="${postVar.title}"></h5>
+     <ul>
+         <li th:text="${postVar.description}"></li>
+         <li th:text="${postVar.body}"></li>
+    </ul>
+</div>
+
+
+</body>
+</html>
