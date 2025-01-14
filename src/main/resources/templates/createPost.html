@@ -6,11 +6,16 @@
 </head>
 <body>
 
-<form th:object="${newPost}" method="post" th:action="@{/posts}">
+<form th:object="${newPost}" method="post" th:action="@{/posts/create}">
 
     <input type="text" placeholder="Title" th:field="${newPost.title}">
+    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color: red"></p>
+
     <input type="text" placeholder="Description" th:field="${newPost.description}">
+    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" style="color: red"></p>
+
     <input type="text" placeholder="Body" th:field="${newPost.body}">
+    <p th:if="${#fields.hasErrors('body')}" th:errors="*{body}" style="color: red"></p>
     <input type="submit">
 
 </form>

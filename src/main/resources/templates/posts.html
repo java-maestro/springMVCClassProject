@@ -16,6 +16,7 @@
          <li th:text="${postVar.description}"></li>
          <li th:text="${postVar.body}"></li>
     </ul>
+    <a th:href="@{'update/' + ${postVar.postId}}">Edit</a>
 </div>
 
 

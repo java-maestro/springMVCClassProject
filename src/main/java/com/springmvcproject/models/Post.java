@@ -1,16 +1,28 @@
 package com.springmvcproject.models;
 
+import com.springmvcproject.enums.PostStatus;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 public class Post {
+
     private int  postId;
+    @NotNull(message = "The Title is required")
+    @Size(min = 2, max = 50)
     private String title;
+    @NotNull(message = "The Description is required")
+    @Size(min = 2, max = 250)
     private String description;
+    @NotNull
+    @Size(min =10, message = "The body should be at least 10 characters")
+    @Size(max =300, message = "The body should be less than 300 characters")
     private String body;
-    private String postStatus ;
+    private PostStatus postStatus ;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
     private List<Comment> comments;
@@ -19,7 +31,7 @@ public class Post {
 
     }
 
-    public Post(int postId, String title, String description, String body, String postStatus, LocalDateTime createdOn, LocalDateTime updatedOn, List<Comment> comments) {
+    public Post(int postId, String title, String description, String body, PostStatus postStatus, LocalDateTime createdOn, LocalDateTime updatedOn, List<Comment> comments) {
         this.postId = postId;
         this.title = title;
         this.description = description;
@@ -62,11 +74,11 @@ public class Post {
         this.body = body;
     }
 
-    public String getPostStatus() {
+    public PostStatus getPostStatus() {
         return postStatus;
     }
 
-    public void setPostStatus(String postStatus) {
+    public void setPostStatus(PostStatus postStatus) {
         this.postStatus = postStatus;
     }
 

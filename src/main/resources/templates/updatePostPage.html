@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Post Page</title>
+</head>
+<body>
+
+<form th:object="${postToBeUpdated}" method="post" >
+
+  <input type="text" placeholder="Title" th:field="${postToBeUpdated.title}">
+  <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color: red"></p>
+
+  <input type="text" placeholder="Description" th:field="${postToBeUpdated.description}">
+  <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" style="color: red"></p>
+
+  <input type="text" placeholder="Body" th:field="${postToBeUpdated.body}">
+  <p th:if="${#fields.hasErrors('body')}" th:errors="*{body}" style="color: red"></p>
+  <input type="submit">
+
+</form>
+
+</body>
+</html>

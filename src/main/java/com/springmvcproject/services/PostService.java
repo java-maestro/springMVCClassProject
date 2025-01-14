@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -20,4 +21,14 @@ public class PostService {
     public void createPost(Post post) {
         postRepository.addPost(post);
     }
+
+    public Optional<Post> getPostById(int id) {
+
+       return Optional.ofNullable(postRepository.findById(id));
+    }
+
+    public void updatePost(Post updatedPost) {
+        postRepository.updatePost(updatedPost);
+    }
+
 }
