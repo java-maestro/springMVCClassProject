@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Comment Page</title>
+</head>
+<body>
+ <h1>Add Comment</h1>
+
+<form th:object="${newComment}" th:method="post" >
+  <input type="text" th:field="${newComment.title}" placeholder="Title">
+  <input type="text" th:field="${newComment.authorName}" placeholder="Author Name">
+    <input type="submit"  value="Add Comment">
+</form>
+
+
+</body>
+</html>

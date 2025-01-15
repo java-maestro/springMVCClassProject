@@ -9,6 +9,7 @@
 
 
 <form th:object="${postToBeDeleted}" th:method="post" th:action="@{${postToBeDeleted.postId}}">
+
   <label>Do you want to delete this post ?</label>
   <input type="submit" value="Delete">
 </form>
