@@ -60,7 +60,17 @@ public class PostRepository {
              break;
          }
      }
-
     }
+
+
+    public void deletePost(int id) {
+        for(int i = 0; i < posts.size(); i++) {
+            if(posts.get(i).getPostId() == id) {
+                posts.remove(i);
+                break;
+            }
+        }
+    }
+
 
 }

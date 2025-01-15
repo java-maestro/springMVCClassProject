@@ -70,15 +70,31 @@ public class PostController {
         if(errors.hasErrors()){
             return "updatePostPage";  // html page name
         }
-
+        post.setPostId(id);
         postService.updatePost(post);
         return "redirect:/posts";
     }
 
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") int id, Model model){
+
+        Optional<Post> optionalPost = postService.getPostById(id);
+        if(optionalPost.isPresent()){
+            model.addAttribute("postToBeDeleted", optionalPost.get());
+        }else{
+            return "redirect:/posts";
+        }
+        return "deletePostPage";
+    }
 
 
 
-    
-    
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable("id") int id){
+        postService.deletePostByID(id);
+        return "redirect:/posts";
+    }
+
+
 
 }

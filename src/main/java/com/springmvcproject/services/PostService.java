@@ -31,4 +31,8 @@ public class PostService {
         postRepository.updatePost(updatedPost);
     }
 
+    public void deletePostByID(int id) {
+        postRepository.deletePost(id);
+    }
+
 }
